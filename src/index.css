@@ -1,114 +1,118 @@
+/* === GLOBAL === */
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #2c2c2c;
+	color: #e9f1ff;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	/* Background with blue tones + wallpaper + transparent overlay */
+	background-image:
+		linear-gradient(rgba(0, 10, 30, 0.65), rgba(0, 10, 30, 0.65)),
+		url("wallpaper.png");
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
 
-a {
-	font-weight: 500;
-	color: #646cff;
-	text-decoration: inherit;
-}
-a:hover {
-	color: #535bf2;
-}
-
+/* Full-screen alignment */
 body {
 	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 320px;
 	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
 }
 
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
+/* === GLASS CONTAINER === */
+/* Main form card using glassmorphism */
+.container {
+	max-width: 450px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 16px;
+	padding: 30px;
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	color: white;
 }
 
-button,
-input,
-textarea,
-select {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #1a1a1a;
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-button:hover,
-input:hover,
-textarea:hover,
-select:hover {
-	border: 1px solid #646cff;
+/* TITLES */
+h2 {
+	text-align: center;
+	margin-bottom: 25px;
+	font-size: 2rem;
+	color: #bcdcff;
 }
 
-select {
-	appearance: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-	background-repeat: no-repeat;
-	background-position-x: 98%;
-	background-position-y: 50%;
+/* LABELS */
+label {
+	font-size: 0.95rem;
+	color: #cfe5ff;
+	display: block;
+	margin-bottom: 6px;
 }
 
-button:focus,
-button:focus-visible,
-input:focus,
-input:focus-visible,
-textarea:focus,
-textarea:focus-visible,
-select:focus,
-select:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-	outline-color: #646cff;
-}
-
+/* === INPUTS / SELECTS === */
+/* Base styling for all form elements */
 input,
 select,
 textarea {
 	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border-radius: 8px;
+	padding: 14px 18px;
+	font-size: 1rem;
+	border-radius: 10px;
+	border: 1px solid rgba(140, 190, 255, 0.3);
+	background: rgba(0, 20, 50, 0.45);
+	color: white;
 	box-sizing: border-box;
+	transition: 0.25s border, 0.25s background;
 }
 
-input[type='text'],
-select,
-textarea {
-	border: 1px solid #ffffff;
+/* Hover effect for inputs and selects */
+input:hover,
+select:hover {
+	border-color: #64a8ff;
+	background: rgba(0, 40, 80, 0.55);
 }
 
+/* Focus glow effect */
 input:focus,
-textarea:focus {
-	border: 1px solid #646cff;
+select:focus {
+	border-color: #64a8ff;
+	box-shadow: 0 0 10px rgba(100, 168, 255, 0.6);
+	outline: none;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
+/* Custom dropdown arrow for <select> */
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+	background-repeat: no-repeat;
+	background-position-x: 95%;
+	background-position-y: 50%;
+}
+
+/* === ERROR MESSAGE === */
+.error {
+	color: #ff6b6b;
+	font-weight: 500;
+	margin-top: 5px;
+}
+
+/* DEBUG JSON BLOCK */
+pre {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 10px;
+	padding: 15px;
+	overflow: auto;
+	margin-top: 20px;
+	font-size: 0.85rem;
+	color: #d4e7ff;
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
